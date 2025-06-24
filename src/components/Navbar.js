@@ -88,7 +88,7 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'top-4 left-5 right-5 h-[60px] rounded-full bg-background/80 backdrop-blur-xl shadow-2xl' : 'top-0 w-full h-[88px]'}`}>
-      <div className="flex justify-center items-center gap-x-8 h-full px-6">
+      <div className="flex justify-between items-center h-full px-4 sm:px-6 gap-x-4 md:gap-x-8">
         <Link href="/" className="block">
             <Image
               src="/images/medhwan_logo.svg"
@@ -140,14 +140,31 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2"
+          className="md:hidden p-2 focus:outline-none"
           type="button"
           aria-label="Toggle navigation"
         >
           {/* Hamburger Icon */}
+          <span className="block w-6 h-0.5 bg-foreground mb-1"></span>
+          <span className="block w-6 h-0.5 bg-foreground mb-1"></span>
+          <span className="block w-6 h-0.5 bg-foreground"></span>
         </button>
       </div>
-      {/* Mobile menu would go here, preserving structure */}
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-background shadow-lg z-40 animate-fade-in flex flex-col items-center py-4 gap-2 border-t border-border">
+          {navLinks.map(link => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={e => handleLinkClick(e, link.id)}
+              className={`block w-full text-center py-3 text-lg font-semibold hover:bg-primary/10 transition-colors ${activeMenu === link.id ? 'text-primary' : 'text-foreground'}`}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   )
 } 

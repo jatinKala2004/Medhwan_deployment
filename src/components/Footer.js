@@ -4,9 +4,9 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#3674B5] text-white py-12">
+    <footer className="bg-[#3674B5] text-white py-8 sm:py-10 md:py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold mb-4 text-[#A1E3F9]">Medhwan Edutech</h3>
             <p>
@@ -50,7 +50,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="border-t border-[#A1E3F9] mt-8 pt-8 text-center">
+        <div className="border-t border-[#A1E3F9] mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-sm sm:text-base">
           <p>&copy; {new Date().getFullYear()} Medhwan Edutech. All rights reserved.</p>
         </div>
       </div>
