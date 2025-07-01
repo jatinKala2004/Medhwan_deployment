@@ -15,7 +15,7 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 50);
 
       if (isClickScrolling.current) return;
-    const sections = ['home', 'why-prajwal', 'go-elite', 'about-prajwal', 'about-us', 'testimonials', 'contact-us'];
+    const sections = ['home', 'about-prajwal', 'get-elite', 'testimonials', 'faqs', 'about-us', 'contact-us'];
       let current = '';
       for (const id of sections) {
         const section = document.getElementById(id);
@@ -41,22 +41,11 @@ export default function Navbar() {
     const element = document.getElementById(targetId);
     if(element) {
       let offset;
-      if (targetId === 'go-elite') {
-        // When scrolled, nav height is 60px. We want 50px margin.
-        // Card top should be at 60 + 50 = 110px.
-        // Card's actual position is section.offsetTop + 100px (from section padding).
-        // So, scroll to (section.offsetTop + 100) - 110 = section.offsetTop - 10.
-        // The offset to subtract is 10.
-        const goEliteScrolledOffset = 10;
-        
-        // When not scrolled, nav height is 88px. We want 50px margin.
-        // Card top should be at 88 + 50 = 138px.
-        // Card's actual position is section.offsetTop + 100px.
-        // So, scroll to (section.offsetTop + 100) - 138 = section.offsetTop - 38.
-        // The offset to subtract is 38.
-        const goEliteInitialOffset = 38;
-
-        offset = isScrolled ? goEliteScrolledOffset : goEliteInitialOffset;
+      if (targetId === 'get-elite') {
+        // Adjusted offsets for more space above the section
+        const getEliteScrolledOffset = 40;
+        const getEliteInitialOffset = 70;
+        offset = isScrolled ? getEliteScrolledOffset : getEliteInitialOffset;
       } else {
         // Standard offset for other links
         offset = isScrolled ? 70 : 100;
@@ -78,16 +67,16 @@ export default function Navbar() {
 
   const navLinks = [
     { id: 'home', label: 'Home' },
-    { id: 'why-prajwal', label: 'Why Prajwal?' },
-    { id: 'go-elite', label: 'Go Elite', isButton: true },
     { id: 'about-prajwal', label: 'About Prajwal' },
-    { id: 'about-us', label: 'About Us' },
+    { id: 'get-elite', label: 'Get Elite', isButton: true },
     { id: 'testimonials', label: 'Testimonials' },
+    { id: 'faqs', label: 'FAQs' },
+    { id: 'about-us', label: 'About Us' },
     { id: 'contact-us', label: 'Contact Us' }
   ];
 
   return (
-    <nav className={`fixed z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'top-4 left-5 right-5 h-[60px] rounded-full bg-background/80 backdrop-blur-xl shadow-2xl' : 'top-0 w-full h-[88px]'}`}>
+    <nav className={`fixed z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'top-4 left-5 right-5 h-[60px] rounded-full bg-white shadow-md' : 'top-0 w-full h-[88px]'}`}>
       <div className="flex justify-between items-center h-full px-4 sm:px-6 gap-x-4 md:gap-x-8">
         <Link href="/" className="block">
             <Image
@@ -99,7 +88,7 @@ export default function Navbar() {
             />
           </Link>
           
-        <div className="hidden md:flex items-center space-x-7">
+        <div className="hidden lg:flex items-center space-x-7">
           {navLinks.map(link => {
             if (link.isButton) {
               const isGoEliteActive = activeMenu === link.id;
@@ -108,16 +97,19 @@ export default function Navbar() {
                   key={link.id}
                   href={`#${link.id}`} 
                   onClick={(e) => handleLinkClick(e, link.id)} 
-                  className={`group px-6 py-2 text-lg font-extrabold rounded-full transition-all duration-300
-                    ${isGoEliteActive ? 'bg-black' : 'bg-transparent'}
-                    hover:bg-black
+                  className={`group relative text-[1.08rem] font-extrabold text-foreground transition-colors rounded-full py-2
+                    ${isGoEliteActive ? 'bg-black' : 'bg-transparent hover:bg-black'}
                   `}
-                  style={{ fontSize: isScrolled ? '1.1rem' : '1.35rem', letterSpacing: '0.01em' }}
+                  style={{ letterSpacing: '0.01em' }}
                 >
-                  <span className={isGoEliteActive ? 'hidden' : 'shimmer-text-dark group-hover:hidden'}>
+                  <span className={
+                    `${isGoEliteActive ? 'hidden' : 'shimmer-text-dark group-hover:hidden'} relative z-10 px-3`
+                  }>
                     {link.label}
                   </span>
-                  <span className={isGoEliteActive ? 'inline text-white' : 'hidden text-white group-hover:inline'}>
+                  <span className={
+                    `${isGoEliteActive ? 'inline text-white' : 'hidden text-white group-hover:inline'} relative z-10 px-3`
+                  }>
                     {link.label}
                   </span>
                 </a>
@@ -128,7 +120,7 @@ export default function Navbar() {
                 key={link.id}
                 href={`#${link.id}`} 
                 onClick={(e) => handleLinkClick(e, link.id)} 
-                className={`group relative text-[1.08rem] font-bold text-foreground hover:text-foreground transition-colors ${activeMenu === link.id ? 'text-foreground' : ''}`}
+                className={`group relative text-[1.08rem] font-bold text-foreground hover:text-foreground transition-colors py-2 px-3 ${activeMenu === link.id ? 'text-foreground' : ''}`}
                 style={{ letterSpacing: '0.01em' }}
                 >
                 {link.label}
@@ -140,7 +132,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 focus:outline-none"
+          className="lg:hidden p-2 focus:outline-none"
           type="button"
           aria-label="Toggle navigation"
         >
@@ -152,13 +144,13 @@ export default function Navbar() {
       </div>
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background shadow-lg z-40 animate-fade-in flex flex-col items-center py-4 gap-2 border-t border-border">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-background shadow-lg z-40 animate-fade-in flex flex-col items-start py-4 gap-2 border-t border-border px-6">
           {navLinks.map(link => (
             <a
               key={link.id}
               href={`#${link.id}`}
               onClick={e => handleLinkClick(e, link.id)}
-              className={`block w-full text-center py-3 text-lg font-semibold hover:bg-primary/10 transition-colors ${activeMenu === link.id ? 'text-primary' : 'text-foreground'}`}
+              className={`block w-full text-left py-3 text-lg font-semibold hover:bg-primary/10 transition-colors ${activeMenu === link.id ? 'text-primary' : 'text-foreground'} px-2`}
             >
               {link.label}
             </a>
