@@ -106,7 +106,7 @@ const Hero = () => {
               className="space-y-2 sm:space-y-4"
             >
               <a
-                href="https://play.google.com/store/apps/details?id=com.medhwan.prajjwal_code"
+                href="https://play.google.com/store/apps/details?id=com.medhwan.prajwal"
                 className="inline-flex items-center justify-center gap-2 sm:gap-3 bg-black text-white px-4 py-2 sm:px-6 sm:py-4 rounded-xl font-semibold text-base sm:text-lg md:text-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <Image
