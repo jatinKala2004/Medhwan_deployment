@@ -12,14 +12,13 @@ const responsive = {
 }
 
 const carouselItems = [
-  { src: '/images/1 - Home.jpg', alt: 'Prajwal App Screenshot 1' },
-  { src: '/images/2 - Objectives.jpg', alt: 'Prajwal App Screenshot 2' },
+  { src: '/images/1 - Home.jpeg.jpg', alt: 'Prajwal App Screenshot 1' },
+  { src: '/images/2 - Objectives.jpeg.jpg', alt: 'Prajwal App Screenshot 2' },
   { src: '/images/3 - Subjectives.jpg', alt: 'Prajwal App Screenshot 3' },
-  { src: '/images/4 - Learning videos.jpg', alt: 'Prajwal App Screenshot 4' },
+  { src: '/images/4 - Learning videos.jpeg.jpg', alt: 'Prajwal App Screenshot 4' },
   { src: '/images/5 - Quiz.jpg', alt: 'Prajwal App Screenshot 5' },
   { src: '/images/6 - Quiz result.jpg', alt: 'Prajwal App Screenshot 6' },
-  { src: '/images/7 - Bookmarks.jpg', alt: 'Prajwal App Screenshot 7' },
-  { src: '/images/8 - Free trial.jpg', alt: 'Prajwal App Screenshot 8' },
+  { src: '/images/7 - Bookmarks.jpg', alt: 'Prajwal App Screenshot 7' }
 ]
 
 const bulletData = [
