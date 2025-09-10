@@ -374,7 +374,7 @@ export default function Home() {
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
-              <span className="text-[#FFD700] font-bold text-base max-[430px]:text-sm" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 999/- Only</span>
+              <span className="text-[#FFD700] font-bold text-base max-[430px]:text-sm" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 699/- Only</span>
             </motion.div>
           </motion.div>
           {/* Still Unsure About Upgrading Section */}
