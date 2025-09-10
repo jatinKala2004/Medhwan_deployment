@@ -1,3 +1,5 @@
+//for future use, not applied to website!
+
 'use client'
 import { useState } from 'react'
 import Navbar from '@/components/Navbar'

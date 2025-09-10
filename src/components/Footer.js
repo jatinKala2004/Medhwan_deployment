@@ -21,7 +21,7 @@ const Footer = () => {
               <h2 className="text-3xl font-bold mb-3 bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                 Medhwan Edutech
               </h2>
-              <p className="text-gray-300 text-lg leading-relaxed max-w-md">
+              <p className="text-gray-300 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">
                 Empowering the next generation with cutting-edge educational technology and innovative learning solutions.
               </p>
             </div>

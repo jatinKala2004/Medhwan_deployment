@@ -1,8 +1,40 @@
+//not applied, for future use!
+
 'use client'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
 const Contact = () => {
+  const router = useRouter();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Message sent successfully!');
+    router.push('/message-sent');
+      } else {
+        alert('Error: ' + (data.message || 'Failed to send message.'));
+      }
+    } catch (err) {
+      alert('Error: ' + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <section id="contact" className="min-h-screen py-20 bg-gradient-to-b from-primary to-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,46 +59,23 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-text-light mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="John Doe"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-text-light mb-1">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="john@example.com"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-text-light mb-1">
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  rows="4"
-                  className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20"
-                  placeholder="How can we help you?"
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-accent text-text-light py-3 rounded-lg font-semibold hover:bg-accent-light transition-colors duration-300"
-              >
-                Send Message
-              </button>
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              const name = e.target.name.value;
+              const email = e.target.email.value;
+              const message = e.target.message.value;
+              const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+              });
+              const data = await res.json();
+              alert(JSON.stringify(data));
+            }}>
+              <input name="name" placeholder="Name" required className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20 mb-2" />
+              <input name="email" placeholder="Email" required className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20 mb-2" />
+              <textarea name="message" placeholder="Message" required className="w-full px-4 py-2 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-text-light placeholder-accent focus:border-accent focus:ring-2 focus:ring-accent/20 mb-2" />
+              <button type="submit" className="w-full bg-accent text-text-light py-3 rounded-lg font-semibold hover:bg-accent-light transition-colors duration-300">Send</button>
             </form>
           </motion.div>
 

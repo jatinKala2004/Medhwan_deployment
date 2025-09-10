@@ -1,3 +1,5 @@
+//not applied layout, for future use!
+
 import { Poppins, Inter } from 'next/font/google'
 import './globals.css'
 
@@ -21,6 +23,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="favicon.png" />
+      </head>
+
       <body className={`${poppins.variable} ${inter.variable} font-sans`}>
         {children}
       </body>

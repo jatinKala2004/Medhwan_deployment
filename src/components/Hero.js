@@ -12,14 +12,19 @@ const responsive = {
 }
 
 const carouselItems = [
-  { src: '/images/Home.png', alt: 'Prajwal App Screenshot 1' },
-  { src: '/images/Home (2).png', alt: 'Prajwal App Screenshot 2' },
-  { src: '/images/Home (3).png', alt: 'Prajwal App Screenshot 3' },
+  { src: '/images/1 - Home.jpg', alt: 'Prajwal App Screenshot 1' },
+  { src: '/images/2 - Objectives.jpg', alt: 'Prajwal App Screenshot 2' },
+  { src: '/images/3 - Subjectives.jpg', alt: 'Prajwal App Screenshot 3' },
+  { src: '/images/4 - Learning videos.jpg', alt: 'Prajwal App Screenshot 4' },
+  { src: '/images/5 - Quiz.jpg', alt: 'Prajwal App Screenshot 5' },
+  { src: '/images/6 - Quiz result.jpg', alt: 'Prajwal App Screenshot 6' },
+  { src: '/images/7 - Bookmarks.jpg', alt: 'Prajwal App Screenshot 7' },
+  { src: '/images/8 - Free trial.jpg', alt: 'Prajwal App Screenshot 8' },
 ]
 
 const bulletData = [
-  'Prajwal boosts your exam preparation by presenting your syllabus in the easiest way possible.',
-  'Powered by AI, it offers mind maps, quizzes, practice questions, and revision notes to boost your performance.',
+  'A learning app designed to convert your dream results into reality.',
+  'Explore mind maps, self-assessment quizzes, IMP questions, revision notes and much more with the power of AI.',
 ]
 
 const Hero = () => {
@@ -50,10 +55,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-base sm:text-lg font-medium"
+              className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-xs sm:text-sm md:text-base lg:text-lg font-medium"
             >
               <FaRocket className="w-5 h-5" />
-              AI-Powered Learning Platform
+              Your Career Catalyst
             </motion.div>
 
             {/* Main Heading */}
@@ -128,12 +133,15 @@ const Hero = () => {
           >
             <div className="relative">
               {/* Floating Elements */}
-              <div className="absolute top-0 left-0 w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-yellow-400 rounded-full animate-bounce"></div>
-              <div className="absolute bottom-0 right-0 w-3 h-3 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-blue-400 rounded-full animate-pulse"></div>
+              <div className="absolute -top-4 sm:-top-6 lg:-top-8 left-0 w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-yellow-400 rounded-full animate-bounce"></div>
+              <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 right-0 w-3 h-3 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-blue-400 rounded-full animate-pulse"></div>
               
               {/* App Screenshot */}
               <div className="relative overflow-visible">
-                <div className="w-40 h-[280px] sm:w-56 sm:h-[380px] md:w-64 md:h-[440px] lg:w-72 lg:h-[560px] rounded-2xl overflow-hidden mx-auto">
+                {/* Phone Body (container) */}
+                <div className="relative mx-auto rounded-[2rem] bg-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] p-1 sm:p-1.5 md:p-2 lg:p-2.5">
+                  {/* Screen (carousel inside phone) */}
+                  <div className="relative w-[140px] h-[280px] sm:w-[190px] sm:h-[380px] md:w-[220px] md:h-[440px] lg:w-[280px] lg:h-[560px] rounded-[1.4rem] overflow-hidden bg-white ring-1 ring-black/10">
                   <Carousel
                     responsive={responsive}
                     infinite={true}
@@ -145,17 +153,18 @@ const Hero = () => {
                     swipeable={true}
                   >
                     {carouselItems.map((item, index) => (
-                      <div key={index} className="relative h-[280px] sm:h-[380px] md:h-[440px] lg:h-[560px]">
+                      <div key={index} className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[560px]">
                         <Image
                           src={item.src}
                           alt={item.alt}
                           fill
-                          className="object-cover"
+                          className="object-contain object-center"
                           priority={index === 0}
                         />
                       </div>
                     ))}
                   </Carousel>
+                  </div>
                 </div>
               </div>
             </div>

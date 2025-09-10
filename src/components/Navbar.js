@@ -80,11 +80,11 @@ export default function Navbar() {
       <div className="flex justify-between items-center h-full px-4 sm:px-6 gap-x-4 md:gap-x-8">
         <Link href="/" className="block">
             <Image
-              src="/images/medhwan_logo.svg"
+              src="/images/medhwan_logo.png"
               alt="Medhwan Logo"
             width={isScrolled ? 170 : 210}
             height={isScrolled ? 48 : 64}
-            className={`object-contain transition-all duration-300 ${isScrolled ? 'h-10' : 'h-16'}`}
+            className={`object-contain transition-all duration-300 ${isScrolled ? 'h-18' : 'h-18'}`}
             />
           </Link>
           
@@ -136,27 +136,58 @@ export default function Navbar() {
           type="button"
           aria-label="Toggle navigation"
         >
-          {/* Hamburger Icon */}
-          <span className="block w-6 h-0.5 bg-foreground mb-1"></span>
-          <span className="block w-6 h-0.5 bg-foreground mb-1"></span>
-          <span className="block w-6 h-0.5 bg-foreground"></span>
+          {/* Animated Hamburger/X Icon */}
+          <span className="relative block w-6 h-6">
+            <span
+              className={`absolute left-0 top-1 w-6 h-0.5 bg-foreground rounded transition-all duration-300 ${isOpen ? 'rotate-45 top-3' : ''}`}
+            ></span>
+            <span
+              className={`absolute left-0 top-3 w-6 h-0.5 bg-foreground rounded transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}
+            ></span>
+            <span
+              className={`absolute left-0 top-5 w-6 h-0.5 bg-foreground rounded transition-all duration-300 ${isOpen ? '-rotate-45 top-3' : ''}`}
+            ></span>
+          </span>
         </button>
       </div>
-      {/* Mobile menu */}
-      {isOpen && (
-        <div className="lg:hidden absolute top-full left-0 w-full bg-background shadow-lg z-40 animate-fade-in flex flex-col items-start py-4 gap-2 border-t border-border px-6">
-          {navLinks.map(link => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              onClick={e => handleLinkClick(e, link.id)}
-              className={`block w-full text-left py-3 text-lg font-semibold hover:bg-primary/10 transition-colors ${activeMenu === link.id ? 'text-primary' : 'text-foreground'} px-2`}
-            >
-              {link.label}
-            </a>
-          ))}
+      {/* Mobile menu as roll-down drawer below navbar */}
+      <div
+        className={`lg:hidden absolute left-0 w-full bg-gray-700 shadow-lg z-50 border-b border-border px-6 flex flex-col items-start gap-2 transition-all duration-500 ease-in-out overflow-hidden
+          ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        style={{
+          top: isScrolled ? '60px' : '88px',
+          height: isOpen ? (isScrolled ? 'calc(100vh - 60px)' : 'calc(100vh - 88px)') : '0px',
+          willChange: 'height, opacity',
+        }}
+        aria-hidden={!isOpen}
+      >
+        <div className={`w-full flex flex-col items-start ${isOpen ? 'pt-8' : 'pt-0'}`} style={{transition: 'padding 0.5s'}}>
+          {navLinks.map(link => {
+            const isActive = activeMenu === link.id;
+            const isGetElite = link.id === 'get-elite';
+            return (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={e => handleLinkClick(e, link.id)}
+                className={`block w-full text-left py-3 text-lg px-4 transition-colors rounded-lg
+                  ${isActive ? 'bg-gray-600 border border-gray-500' : ''}
+                  ${!isGetElite && isActive ? 'text-white font-bold' : ''}
+                  ${!isGetElite && !isActive ? 'text-gray-100' : ''}
+                  hover:bg-gray-600`}
+              >
+                {isGetElite ? (
+                  <span className={isActive ? 'shimmer-text-mobile-active' : 'shimmer-text-mobile text-blue-400'}>
+                    {link.label}
+                  </span>
+                ) : (
+                  link.label
+                )}
+              </a>
+            )
+          })}
         </div>
-      )}
+      </div>
     </nav>
   )
 } 

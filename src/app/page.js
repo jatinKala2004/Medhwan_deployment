@@ -12,6 +12,7 @@ import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import TestimonialCarouselArrows from '@/components/TestimonialCarouselArrows'
 import StarRating from '@/components/StarRating'
+import { useRouter } from 'next/navigation'
 
 // Floating SVGs for background
 const FloatingSVGs = () => (
@@ -37,6 +38,7 @@ const WavyDivider = () => (
 )
 
 export default function Home() {
+  const router = useRouter();
   const FADE_IN_VARIANTS = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
@@ -51,6 +53,12 @@ export default function Home() {
     'bg-[#FFFDE7]', // Light Yellow
     'bg-[#FCE4EC]'  // Light Pink
   ];
+
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+    // You can add API call logic here if needed
+    router.push('/message-sent');
+  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -88,9 +96,9 @@ export default function Home() {
             <h2 className="text-6xl md:text-7xl font-bold mb-8 text-gray-900">
               About Prajwal
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            {/*} <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
               Our flagship AI-powered learning app designed to convert student's dream results into their actual results
-            </p>
+            </p>*/}
           </motion.div>
 
           {/* Main Content Grid */}
@@ -106,18 +114,18 @@ export default function Home() {
             {[
               {
                 number: '01',
-                  title: "AI-Powered Learning",
-                  description: "Backed with advanced AI, Prajwal offers mind maps, self-assessment quizzes, practice questions, and revision notes to achieve academic success."
+                  title: "Your Career Catalyst",
+                  description: "Prajwal is Medhwan’s flagship learning app designed to convert your dream results into reality."
               },
               {
                 number: '02',
-                  title: "Comprehensive Coverage",
-                  description: "Designed for Class 10 English-medium students of the GSEB board, but equally useful for learners following the NCERT curriculum."
+                  title: "Your Learning Partner",
+                  description: "Prajwal enhances your preparation by offering mind maps, self-assessment quizzes, IMP questions, revision notes and much more to achieve academic success."
               },
               {
                 number: '03',
-                  title: "Results-Driven Approach",
-                  description: "Every feature is designed to convert students' dream results into their actual results through personalized learning paths."
+                  title: "Comprehensive Coverage",
+                  description: "Prajwal is currently designed for Class 10 English-medium students of the GSEB board, but it's equally useful for learners following the NCERT curriculum."
               }
               ].map((item, index) => (
               <motion.div
@@ -157,7 +165,7 @@ export default function Home() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Smart Learning</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">Smile n Learn</h3>
                   <p className="text-gray-600">AI-powered education for the modern student</p>
                 </div>
               </div>
@@ -168,16 +176,16 @@ export default function Home() {
       {/* Subheading and Cards - PART 2 */}
       <section className="w-full pt-6 pb-16 px-0">
         <motion.h3
-          className="text-2xl md:text-3xl font-semibold mb-10 text-center text-primary"
+          className="text-3xl md:text-4xl font-semibold mb-10 text-center text-primary"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5 } } }}
         >
-          Prajwal's Key Features
+          Why Choose Prajwal ?
         </motion.h3>
         <motion.div
-          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6 sm:px-12"
+          className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8 px-6 sm:px-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
@@ -185,34 +193,24 @@ export default function Home() {
         >
           {[
             {
-              icon: <FaTrophy />, title: "Score High Without Stress",
-              text: "Prajwal helps you prepare smartly with focused content, questions, and quick revisions - so you can score high without the pressure.",
+              icon: <FaTrophy />, title: "Ace Boards With Prajwal",
+              text: "Practice a wide range of topic-wise questions to master each chapter. Strengthen your objective section with 250+ chapter-wise objective questions.",
               bg: cardBgColors[0]
             },
             {
-              icon: <FaChartBar />, title: "Focus on Weak Topics",
-              text: "Everyone has weak areas. With Prajwal, you can review focused notes, learning videos and practice every important question from that topic.",
+              icon: <FaRobot />, title: "Feel The Real Exam",
+              text: "Experience quizzes that feel like JEE and NEET exams. Track, improve, and conquer with detailed quiz insights.",
               bg: cardBgColors[1]
             },
             {
-              icon: <FaBookOpen />, title: "Quality Content",
-              text: "Prajwal's content is reviewed by Dhaval Gajera, who has consistently delivered top results for over 10 years. In March 2025, 9 students scored a perfect 100 in Science, and 5 did the same in Maths (Basic & Standard).",
+              icon: <FaBookOpen />, title: "Score High Without Stress",
+              text: "Master every chapter with topic-wise to-the-point revision notes & learning videos. Make last-minute revision simple with chapter-wise mind maps.",
               bg: cardBgColors[2]
             },
             {
-              icon: <FaStar />, title: "Excellent Result Not Information",
-              text: "Prajwal isn't just about giving information — it's about delivering excellent results. Our content is designed to help you score high, not just learn more.",
+              icon: <FaStar />, title: "Your Result Matters",
+              text: "Prajwal's content is reviewed by Dhaval Gajera, who has consistently delivered top results for over 10 years. In March 2025, 9 students scored a perfect 100 in Science, and 5 did the same in Maths (Basic & Standard).",
               bg: cardBgColors[3]
-            },
-            {
-              icon: <FaClipboardList />, title: "Master 30% Objectives",
-              text: "Prajwal provides 300+ objective questions for every chapter, helping you master the section that carries 30% weightage in your board exams.",
-              bg: cardBgColors[4]
-            },
-            {
-              icon: <FaRobot />, title: "AI Quizzes",
-              text: "Experience quizzes that feel like national-level exams such as JEE and NEET - powered by AI for smarter preparation.",
-              bg: cardBgColors[5]
             }
           ].map((feature, index) => (
             <motion.div
@@ -281,7 +279,7 @@ export default function Home() {
             {[
               {
                 icon: <FaBookOpen className="text-4xl mb-4" style={{ color: '#1faaff', textShadow: '0 0 12px #1faaff88, 0 0 24px #1faaff44' }} />, 
-                text: 'With Elite plan, unlock every chapter, every subject until your board exams.'
+                text: 'Unlock every chapter, every subject until your board exams.'
               },
               {
                 icon: <FaMagic className="text-4xl mb-4" style={{ color: '#1faaff', textShadow: '0 0 12px #1faaff88, 0 0 24px #1faaff44' }} />, 
@@ -289,7 +287,7 @@ export default function Home() {
               },
               {
                 icon: <FaSyncAlt className="text-4xl mb-4" style={{ color: '#1faaff', textShadow: '0 0 12px #1faaff88, 0 0 24px #1faaff44' }} />, 
-                text: 'Elite also includes all future subjects and updates at no extra cost.'
+                text: 'Get access to all future subjects and updates at no extra cost.'
               }
             ].map((feature, idx) => (
               <motion.div
@@ -435,16 +433,21 @@ export default function Home() {
             swipeable={true}
             showDots={false}
             arrows={false}
+            autoPlay={true}
+            autoPlaySpeed={5000}
             className="pb-8"
             customButtonGroup={<TestimonialCarouselArrows />}
             renderButtonGroupOutside={true}
             >
               {[
-                { name: 'Priya', gender: 'girl', rating: 5, text: 'The personalized quizzes and revision notes are amazing! I feel much more confident in my exams now.' },
-                { name: 'Rahul', gender: 'boy', rating: 5, text: 'I love the user-friendly interface and the variety of study materials available. Highly recommended!' },
-                { name: 'Sneha', gender: 'girl', rating: 5, text: 'The best learning platform I have used. The AI-powered analytics really help me track my progress.' },
-                { name: 'Vikram', gender: 'boy', rating: 5, text: 'Great app for students! The one-on-one mentoring feature is a game changer.' },
-                { name: 'Ananya', gender: 'girl', rating: 5, text: 'Prajwal makes studying fun and effective. The exclusive content is very helpful.' }
+                { name: 'Pooja Dalwani ', gender: 'girl', rating: 5, text: 'The app is genuine and I was able to score 90+  because of this app only 👍' },
+                { name: 'Yash Hirpara', gender: 'boy', rating: 5, text: 'This app helped me a lot in my board preparation, I scored more than expected because of this app. 😊s' },
+                { name: 'Kartik Yewalekar', gender: 'boy', rating: 5, text: ' My most of preparation was done by this only' },
+                { name: 'Shubhan shivdasan', gender: 'boy', rating: 5, text: 'It was the best thing i got for the last day revision' },
+                { name: 'Bhayaya Rogheliya ', gender: 'boy', rating: 5, text: 'The app is best for Last minute revision also and for and I solved almost every PYQ and score 100 marks in Maths and science 👍👍💯' },
+                { name: 'Jay Jilka', gender: 'boy', rating: 5, text: 'App is very useful, almost everything in board was from this app. I would recommend for other students also. 👍' },
+                { name: 'Hitarth Marthak', gender: 'boy', rating: 5, text: 'App is very smooth and clear, no extra unnecessary material. It is very useful for scoring good in boards.' },
+                { name: 'Ankola Dhruv', gender: 'boy', rating: 5, text: 'Good app I like it, practice sheet was amazing' }
             ].map((student, index) => (
                   <div key={index} className="px-3 py-2 h-full">
                     <div className="bg-white rounded-xl shadow-md p-10 min-h-[280px] h-full flex flex-col">
@@ -484,104 +487,138 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">FAQs</h2>
           </motion.div>
           <div className="max-w-2xl mx-auto space-y-12">
-            {/* General */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">General</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">What is Prajwal? Who is it for?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Prajwal is a learning app designed to convert students' dream result into their actual result. Backed with AI, Prajwal offers mind maps, self-assessment quizzes, practice questions, revision notes and much more to achieve academic success.</p>
+            {/* FAQ Dropdown Implementation */}
+            {(() => {
+              // FAQ data structure
+              const faqData = [
+                {
+                  category: 'General',
+                  items: [
+                    {
+                      q: 'What is Prajwal? Who is it for?',
+                      a: `Prajwal is a learning app designed to convert students' dream result into their actual result. Backed with AI, Prajwal offers mind maps, self-assessment quizzes, practice questions, revision notes and much more to achieve academic success.`
+                    },
+                    {
+                      q: 'Who is Prajwal designed for?',
+                      a: `Prajwal is currently designed for Class 10 English-medium students of the GSEB board, but it's equally useful for learners following the NCERT curriculum.`
+                    }
+                  ]
+                },
+                {
+                  category: 'Elite Plan',
+                  items: [
+                    {
+                      q: 'What is Elite plan? What is included in it?',
+                      a: `Elite is a premium plan that gives complete access to all chapters, future updates, all features and much more.`
+                    },
+                    {
+                      q: 'Is Elite a one-time or monthly plan?',
+                      a: `Elite is a one-time plan valid until your 2026 board exams.`
+                    }
+                  ]
+                },
+                {
+                  category: 'Free Trial',
+                  items: [
+                    {
+                      q: 'How does the 5-day trial work?',
+                      a: `Your free trial begins automatically after registration. Once it ends, you can continue using Prajwal with limited access.`
+                    },
+                    {
+                      q: 'Do I need to enter my card details to start the free trial?',
+                      a: `No, you don't need to add any debit or credit card information.`
+                    }
+                  ]
+                },
+                {
+                  category: 'Subjects / Boards',
+                  items: [
+                    {
+                      q: 'Is Prajwal designed for all boards?',
+                      a: `Prajwal is currently designed for GSEB board (English medium), but it's equally suitable for boards following the NCERT curriculum.`
+                    },
+                    {
+                      q: 'Does Prajwal include all subjects?',
+                      a: `Currently, Prajwal covers all core subjects: Physics, Chemistry, Biology, Basic Maths, and Standard Maths. More subjects will be added in future updates.`
+                    }
+                  ]
+                },
+                {
+                  category: 'Technical',
+                  items: [
+                    {
+                      q: 'Can I use it offline?',
+                      a: `No, you just need a regular internet connection. Prajwal works smoothly with minimal data usage.`
+                    },
+                    {
+                      q: 'Is it available on iOS?',
+                      a: `No, currently it is available for android only, in future it will be available for iOS also.`
+                    }
+                  ]
+                },
+                {
+                  category: 'Payments',
+                  items: [
+                    {
+                      q: 'Are payments refundable?',
+                      a: `All payments are non refundable as per our policy.`
+                    },
+                    {
+                      q: 'How do I apply discount?',
+                      a: `Special discount coupon codes are regularly updated inside the app. Open the app to find the best available deals!`
+                    }
+                  ]
+                },
+                {
+                  category: 'Account',
+                  items: [
+                    {
+                      q: 'Can I use my account on more than one device at the same time?',
+                      a: `No, you can use your account on only one device at a time. To switch devices, please log out from the current device first.`
+                    },
+                    {
+                      q: 'Can I change the email id linked to my plan ?',
+                      a: `Currently, it's not possible to change the email address linked to your account, but this feature is expected to be available in future updates.`
+                    }
+                  ]
+                }
+              ];
+              // State for open question (category index and question index)
+              const [open, setOpen] = useState({ cat: null, q: null });
+              const handleToggle = (catIdx, qIdx) => {
+                setOpen(open.cat === catIdx && open.q === qIdx ? { cat: null, q: null } : { cat: catIdx, q: qIdx });
+              };
+              return faqData.map((cat, catIdx) => (
+                <div key={cat.category}>
+                  <h3 className="text-3xl font-semibold mb-4 text-primary">{cat.category}</h3>
+                  <div className="space-y-2">
+                    {cat.items.map((item, qIdx) => (
+                      <div key={item.q}>
+                        <button
+                          className="w-full text-left font-bold text-lg md:text-xl flex justify-between items-center py-3 px-4 rounded-lg hover:bg-primary/10 transition-colors focus:outline-none"
+                          onClick={() => handleToggle(catIdx, qIdx)}
+                          aria-expanded={open.cat === catIdx && open.q === qIdx}
+                        >
+                          <span>{item.q}</span>
+                          <span className={`ml-2 transition-transform duration-200 ${open.cat === catIdx && open.q === qIdx ? 'rotate-180' : ''}`}>
+                            {/* Modern arrow-down SVG icon */}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" className="inline align-middle">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                          </span>
+                        </button>
+                        <div
+                          className={`overflow-hidden transition-all duration-300 bg-gray-50 rounded-lg px-4 ${open.cat === catIdx && open.q === qIdx ? 'max-h-40 py-3 mt-1 mb-2' : 'max-h-0 py-0'}`}
+                          style={{}}
+                        >
+                          <p className="text-gray-600 text-base md:text-lg">{item.a}</p>
                 </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Who is Prajwal designed for?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Prajwal is currently designed for Class 10 English-medium students of the GSEB board, but it's equally useful for learners following the NCERT curriculum.</p>
                 </div>
+                    ))}
               </div>
             </div>
-            {/* Elite Plan */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Elite Plan</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">What is Elite plan? What is included in it?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Elite is a premium plan that gives complete access to all chapters, future updates, all features and much more.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Is Elite a one-time or monthly plan?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Elite is a one-time plan valid until your 2026 board exams.</p>
-                </div>
-              </div>
-            </div>
-            {/* Free Trial */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Free Trial</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">How does the 5-day trial work?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Your free trial begins automatically after registration. Once it ends, you can continue using Prajwal with limited access.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Do I need to enter my card details to start the free trial?</p>
-                  <p className="text-gray-600 text-base md:text-lg">No, you don't need to add any debit or credit card information.</p>
-                </div>
-              </div>
-            </div>
-            {/* Subjects / Boards */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Subjects / Boards</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Is Prajwal designed for all boards?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Prajwal is currently designed for GSEB board (English medium), but it's equally suitable for boards following the NCERT curriculum.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Does Prajwal include all subjects?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Currently, Prajwal covers all core subjects: Physics, Chemistry, Biology, Basic Maths, and Standard Maths. More subjects will be added in future updates.</p>
-                </div>
-              </div>
-            </div>
-            {/* Technical */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Technical</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Can I use it offline?</p>
-                  <p className="text-gray-600 text-base md:text-lg">No, you just need a regular internet connection. Prajwal works smoothly with minimal data usage.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Is it available on iOS?</p>
-                  <p className="text-gray-600 text-base md:text-lg">No, currently it is available for android only, in future it will be available for iOS also.</p>
-                </div>
-              </div>
-            </div>
-            {/* Payments */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Payments</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Are payments refundable?</p>
-                  <p className="text-gray-600 text-base md:text-lg">All payments are non refundable as per our policy.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">How do I apply discount?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Special discount coupon codes are regularly updated inside the app. Open the app to find the best available deals!</p>
-                </div>
-              </div>
-            </div>
-            {/* Account */}
-            <div>
-              <h3 className="text-3xl font-semibold mb-4 text-primary">Account</h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Can I use my account on more than one device at the same time?</p>
-                  <p className="text-gray-600 text-base md:text-lg">No, you can use your account on only one device at a time. To switch devices, please log out from the current device first.</p>
-                </div>
-                <div>
-                  <p className="font-bold text-lg md:text-xl">Can I change the phone number linked to my plan?</p>
-                  <p className="text-gray-600 text-base md:text-lg">Yes, you can update the phone number. Your Elite plan will be transferred to the new number.</p>
-                </div>
-              </div>
-            </div>
+              ));
+            })()}
           </div>
         </div>
       </motion.section>
@@ -631,10 +668,10 @@ export default function Home() {
               >
                 <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-100">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <FaUsers className="text-2xl text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <FaUsers className="text-xl sm:text-2xl md:text-3xl text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900">Who We Are</h3>
+                    <h3 className="font-bold text-gray-900 text-2xl sm:text-3xl md:text-4xl">Who We Are</h3>
                 </div>
                   <p className="text-lg text-gray-600 leading-relaxed">
                   Medhwan Edutech is dedicated to transforming education through technology. Our mission is to empower learners with innovative and easy learning solutions that make studying more effective, engaging, and accessible. With our expertise in software and digital solutions, we aim to bridge the gap between students and quality education.
@@ -689,10 +726,10 @@ export default function Home() {
               >
                 <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-100">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
-                      <FaRegEye className="text-2xl text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-full flex items-center justify-center">
+                      <FaRegEye className="text-xl sm:text-2xl md:text-3xl text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900">Our Vision</h3>
+                    <h3 className="font-bold text-gray-900 text-2xl sm:text-3xl md:text-4xl">Our Vision</h3>
                   </div>
                   <p className="text-lg text-gray-600 leading-relaxed">
                   We envision a future where every student has access to high-quality learning tools, regardless of location or background. Through continuous innovation, we strive to simplify and enhance the learning experience, making education more interactive and results-driven.
@@ -718,10 +755,10 @@ export default function Home() {
               >
                 <div className="bg-white rounded-3xl shadow-xl p-12 border border-gray-100">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
-                      <FaLightbulb className="text-2xl text-white" />
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-full flex items-center justify-center">
+                      <FaLightbulb className="text-xl sm:text-2xl md:text-3xl text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-gray-900">Why Choose Medhwan?</h3>
+                    <h3 className="font-bold text-gray-900 text-2xl sm:text-3xl md:text-4xl">Why Choose Medhwan?</h3>
                   </div>
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
@@ -792,37 +829,48 @@ export default function Home() {
             className="max-w-2xl mx-auto bg-white p-8 rounded-2xl border border-gray-200"
             variants={FADE_IN_VARIANTS}
           >
-            <form className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-800">Name</label>
+            <form onSubmit={async (e) => {
+              e.preventDefault();
+              const name = e.target.name.value;
+              const email = e.target.email.value;
+              const message = e.target.message.value;
+              const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, message }),
+              });
+              const data = await res.json();
+              if (res.ok) {
+                router.push('/message-sent');
+              } else {
+                alert('Error sending message. Please try again.');
+              }
+            }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all duration-300"
-                  placeholder="Your name"
+                  name="name" 
+                  placeholder="Your Name" 
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white" 
                 />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-800">Email</label>
                 <input
+                  name="email" 
                   type="email"
-                  id="email"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all duration-300"
-                  placeholder="Your email"
+                  placeholder="Your Email" 
+                  required
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white" 
                 />
               </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-800">Message</label>
                 <textarea
-                  id="message"
-                  rows="4"
-                  className="w-full px-4 py-2 rounded-lg bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-100 outline-none transition-all duration-300"
-                  placeholder="Your message"
-                ></textarea>
-              </div>
+                name="message" 
+                placeholder="Your Message" 
+                  required
+                rows="6"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 bg-white mb-6 resize-none" 
+              />
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-md hover:shadow-lg"
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Send Message
               </button>
