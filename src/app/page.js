@@ -316,7 +316,7 @@ export default function Home() {
           </motion.p>
           {/* Table Columns */}
           <motion.div
-            className="w-full grid grid-cols-3 gap-0 bg-[#232425] rounded-2xl shadow-2xl font-normal" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}
+            className="w-full grid [grid-template-columns:1.2fr_0.9fr_0.9fr] sm:[grid-template-columns:1.25fr_0.9fr_0.9fr] gap-0 bg-[#232425] rounded-2xl shadow-2xl font-normal" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 1 }}
@@ -324,57 +324,57 @@ export default function Home() {
           >
             {/* Feature column */}
             <motion.div
-              className="flex flex-col gap-8 py-6 pl-10 items-start shadow-none transition-all duration-300 hover:bg-[#181A1B]"
+              className="flex flex-col gap-4 py-5 pl-3 pr-2 max-[430px]:gap-3 max-[430px]:py-4 max-[430px]:pl-2 max-[430px]:pr-2 sm:gap-8 sm:pl-6 sm:pr-4 md:pl-10 items-start shadow-none transition-all duration-300 hover:bg-[#181A1B] min-w-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.7 }}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
-              <div className="h-12 flex items-center justify-center w-full font-normal text-xl md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Feature</div>
-              <div className="flex items-center gap-3 text-lg md:text-xl text-white font-semibold">
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded bg-[#181818] text-xl text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaBookOpen /></span>
+              <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Feature</div>
+              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+                <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaBookOpen /></span>
                 Access to all chapters
               </div>
-              <div className="flex items-center gap-3 text-lg md:text-xl text-white font-semibold">
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded bg-[#181818] text-xl text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaSyncAlt /></span>
+              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+                <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaSyncAlt /></span>
                 Future Updates
               </div>
-              <div className="flex items-center gap-3 text-lg md:text-xl text-white font-semibold">
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded bg-[#181818] text-xl text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaMagic /></span>
+              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+                <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaMagic /></span>
                 Access to all features
               </div>
-              <div className="flex items-center gap-3 text-lg md:text-xl text-white font-semibold">
-                <span className="inline-flex items-center justify-center w-7 h-7 rounded bg-[#181818] text-xl text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaRupeeSign /></span>
+              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+                <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaRupeeSign /></span>
                 Price
               </div>
             </motion.div>
             {/* Free Plan column */}
             <motion.div
-              className="flex flex-col gap-8 items-center py-6 bg-[#232425] shadow-none transition-all duration-300 hover:bg-[#181A1B]"
+              className="flex flex-col gap-5 items-center py-6 px-2 max-[430px]:gap-4 sm:gap-8 sm:px-4 bg-[#232425] shadow-none transition-all duration-300 hover:bg-[#181A1B] min-w-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.7 }}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
-              <div className="h-12 flex items-center justify-center w-full font-normal text-xl md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Free Plan</div>
+              <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Free Plan</div>
               <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
               <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
               <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
-              <span className="text-white font-bold text-lg">Free</span>
+              <span className="text-white font-bold text-base max-[430px]:text-sm">Free</span>
             </motion.div>
             {/* Elite Plan column */}
             <motion.div
-              className="flex flex-col gap-8 items-center py-6 bg-[#232425] shadow-none transition-all duration-300 hover:bg-[#181A1B] rounded-r-2xl"
+              className="flex flex-col gap-5 items-center py-6 px-2 max-[430px]:gap-4 sm:gap-8 sm:px-4 bg-[#232425] shadow-none transition-all duration-300 hover:bg-[#181A1B] rounded-r-2xl min-w-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.7 }}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
-              <div className="h-12 flex items-center justify-center w-full font-normal text-xl md:text-2xl" style={{ fontFamily: 'Inter, Segoe UI, sans-serif', color: '#1faaff', textShadow: '0 0 8px #1faaff66, 0 0 16px #1faaff33' }}>Elite Plan</div>
+              <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl" style={{ fontFamily: 'Inter, Segoe UI, sans-serif', color: '#1faaff', textShadow: '0 0 8px #1faaff66, 0 0 16px #1faaff33' }}>Elite Plan</div>
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
               <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
-              <span className="text-[#FFD700] font-bold text-lg" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 999/- Only</span>
+              <span className="text-[#FFD700] font-bold text-base max-[430px]:text-sm" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 999/- Only</span>
             </motion.div>
           </motion.div>
           {/* Still Unsure About Upgrading Section */}
@@ -441,7 +441,7 @@ export default function Home() {
             >
               {[
                 { name: 'Pooja Dalwani ', gender: 'girl', rating: 5, text: 'The app is genuine and I was able to score 90+  because of this app only 👍' },
-                { name: 'Yash Hirpara', gender: 'boy', rating: 5, text: 'This app helped me a lot in my board preparation, I scored more than expected because of this app. 😊s' },
+                { name: 'Yash Hirpara', gender: 'boy', rating: 5, text: 'This app helped me a lot in my board preparation, I scored more than expected because of this app. 😊' },
                 { name: 'Kartik Yewalekar', gender: 'boy', rating: 5, text: ' My most of preparation was done by this only' },
                 { name: 'Shubhan shivdasan', gender: 'boy', rating: 5, text: 'It was the best thing i got for the last day revision' },
                 { name: 'Bhayaya Rogheliya ', gender: 'boy', rating: 5, text: 'The app is best for Last minute revision also and for and I solved almost every PYQ and score 100 marks in Maths and science 👍👍💯' },
@@ -767,7 +767,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-3">
                       <FaRegLightbulb className="text-xl text-yellow-500" />
-                      <span className="text-lg text-gray-700">Innovative & Easy Learning Solutions</span>
+                      <span className="text-lg text-gray-700 ml-2.5">Innovative & Easy Learning Solutions</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="text-xl">📚</span>

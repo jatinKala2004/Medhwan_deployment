@@ -138,9 +138,9 @@ const Hero = () => {
               {/* App Screenshot */}
               <div className="relative overflow-visible">
                 {/* Phone Body (container) */}
-                <div className="relative mx-auto rounded-[2rem] bg-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] p-1 sm:p-1.5 md:p-2 lg:p-2.5">
+                <div className="relative mx-auto rounded-[2rem] bg-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] p-2 sm:p-2.5 md:p-2 lg:p-2.5">
                   {/* Screen (carousel inside phone) */}
-                  <div className="relative w-[140px] h-[280px] sm:w-[190px] sm:h-[380px] md:w-[220px] md:h-[440px] lg:w-[280px] lg:h-[560px] rounded-[1.4rem] overflow-hidden bg-white ring-1 ring-black/10">
+                  <div className="relative w-[160px] h-[320px] sm:w-[215px] sm:h-[430px] md:w-[250px] md:h-[500px] lg:w-[320px] lg:h-[640px] rounded-[1.4rem] overflow-hidden bg-white ring-1 ring-black/10">
                   <Carousel
                     responsive={responsive}
                     infinite={true}
@@ -152,7 +152,7 @@ const Hero = () => {
                     swipeable={true}
                   >
                     {carouselItems.map((item, index) => (
-                      <div key={index} className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[560px]">
+                      <div key={index} className="relative w-full h-[320px] sm:h-[430px] md:h-[500px] lg:h-[640px]">
                         <Image
                           src={item.src}
                           alt={item.alt}
