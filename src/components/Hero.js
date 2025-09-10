@@ -140,7 +140,7 @@ const Hero = () => {
                 {/* Phone Body (container) */}
                 <div className="relative mx-auto rounded-[2rem] bg-black shadow-[0_10px_30px_rgba(0,0,0,0.25)] p-2 sm:p-2.5 md:p-2 lg:p-2.5">
                   {/* Screen (carousel inside phone) */}
-                  <div className="relative w-[160px] h-[320px] sm:w-[215px] sm:h-[430px] md:w-[250px] md:h-[500px] lg:w-[320px] lg:h-[640px] rounded-[1.4rem] overflow-hidden bg-white ring-1 ring-black/10">
+                  <div className="relative w-[180px] h-[340px] sm:w-[215px] sm:h-[430px] md:w-[250px] md:h-[500px] lg:w-[275px] lg:h-[525px] rounded-[1.4rem] overflow-hidden bg-white ring-1 ring-black/10">
                   <Carousel
                     responsive={responsive}
                     infinite={true}

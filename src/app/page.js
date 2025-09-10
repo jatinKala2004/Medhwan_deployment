@@ -767,7 +767,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-3">
                       <FaRegLightbulb className="text-xl text-yellow-500" />
-                      <span className="text-lg text-gray-700 ml-2.5">Innovative & Easy Learning Solutions</span>
+                      <span className="text-lg text-gray-700 ml-2.5 lg:ml-1.5">Innovative & Easy Learning Solutions</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className="text-xl">📚</span>
