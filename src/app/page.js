@@ -324,26 +324,26 @@ export default function Home() {
           >
             {/* Feature column */}
             <motion.div
-              className="flex flex-col gap-4 py-5 pl-3 pr-2 max-[430px]:gap-3 max-[430px]:py-4 max-[430px]:pl-2 max-[430px]:pr-2 sm:gap-8 sm:pl-6 sm:pr-4 md:pl-10 items-start shadow-none transition-all duration-300 hover:bg-[#181A1B] min-w-0"
+              className="relative top-1 flex flex-col gap-5 py-6 pl-3 pr-2 max-[430px]:gap-4 max-[430px]:py-5 max-[430px]:pl-2 max-[430px]:pr-2 sm:gap-8 sm:pl-6 sm:pr-4 md:pl-10 items-start shadow-none transition-all duration-300 hover:bg-[#181A1B] min-w-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.7 }}
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
               <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Feature</div>
-              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+              <div className="min-h-12 flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
                 <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaBookOpen /></span>
                 Access to all chapters
               </div>
-              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+              <div className="min-h-12 flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
                 <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaSyncAlt /></span>
                 Future Updates
               </div>
-              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+              <div className="min-h-12 flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
                 <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaMagic /></span>
                 Access to all features
               </div>
-              <div className="flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
+              <div className="min-h-12 flex items-center gap-2 max-[430px]:gap-1.5 text-base max-[430px]:text-sm sm:text-lg md:text-xl text-white font-semibold break-words">
                 <span className="inline-flex items-center justify-center w-7 h-7 max-[430px]:w-6 max-[430px]:h-6 rounded bg-[#181818] text-xl max-[430px]:text-lg text-[#1faaff]" style={{ textShadow: '0 0 8px #1faaff88, 0 0 16px #1faaff44' }}><FaRupeeSign /></span>
                 Price
               </div>
@@ -357,10 +357,10 @@ export default function Home() {
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
               <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl text-white" style={{ fontFamily: 'Inter, Segoe UI, sans-serif' }}>Free Plan</div>
-              <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
-              <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
-              <HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} />
-              <span className="text-white font-bold text-base max-[430px]:text-sm">Free</span>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineX className="text-3xl" style={{ color: '#ff4444', textShadow: '0 0 8px #ff444466, 0 0 16px #ff444433' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><span className="text-white font-bold text-base max-[430px]:text-sm">Free</span></div>
             </motion.div>
             {/* Elite Plan column */}
             <motion.div
@@ -371,10 +371,10 @@ export default function Home() {
               variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
             >
               <div className="min-h-12 flex items-center justify-center w-full font-normal text-lg max-[430px]:text-base md:text-2xl" style={{ fontFamily: 'Inter, Segoe UI, sans-serif', color: '#1faaff', textShadow: '0 0 8px #1faaff66, 0 0 16px #1faaff33' }}>Elite Plan</div>
-              <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
-              <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
-              <HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} />
-              <span className="text-[#FFD700] font-bold text-base max-[430px]:text-sm" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 699/- Only</span>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><HiOutlineCheck className="text-3xl" style={{ color: '#22c55e', textShadow: '0 0 8px #22c55e66, 0 0 16px #22c55e33' }} /></div>
+              <div className="min-h-12 flex items-center justify-center w-full"><span className="text-[#FFD700] font-bold text-base max-[430px]:text-sm text-center" style={{ textShadow: '0 0 8px #FFD70066, 0 0 16px #FFD70033' }}>Rs. 699/- Only</span></div>
             </motion.div>
           </motion.div>
           {/* Still Unsure About Upgrading Section */}
